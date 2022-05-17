@@ -92,8 +92,88 @@ def decide_move(board: list, player_id: str) -> list[int, int]:
     H = board[2][1]
     I = board[2][2]
 
-#ATAQUE
 
+###ATAQUE
+
+#ATAQUE COLUMNAS
+
+    #ataque tercera columna
+    if A == player_id and B == player_id:
+        row = 0
+        column = 2
+    elif D == player_id and E == player_id:
+        row = 1
+        column = 2
+    elif G == player_id and H == player_id:
+        row = 2
+        column = 2
+    #ataque segunda columna 
+    elif A == player_id and C == player_id:
+        row = 0
+        column = 1
+    elif D == player_id and F == player_id:
+        row = 1
+        column = 1
+    elif G == player_id and I == player_id:
+        row = 2
+        column = 1
+    #ataque primera columna 
+    elif B == player_id and C == player_id:
+        row = 0
+        column = 0
+    elif E  == player_id and F == player_id:
+        row = 1
+        column = 0
+    elif H == player_id and I == player_id:
+        row = 2
+        column = 0
+
+#ATAQUE ROW
+
+    #ataque tercer row
+    if A == player_id and D == player_id:
+        row = 2
+        column = 0
+    elif B == player_id and E == player_id:
+        row = 2
+        column = 1
+    elif C == player_id and F == player_id:
+        row = 2
+        column = 2
+    #ataque segundo row
+    if A == player_id and G == player_id:
+        row = 1
+        column = 0
+    elif B == player_id and H == player_id:
+        row = 1
+        column = 1
+    elif C == player_id and I == player_id:
+        row = 1
+        column = 2
+    #ataque preimer row
+    if D == player_id and G == player_id:
+        row = 0
+        column = 0
+    elif E == player_id and H == player_id:
+        row = 0
+        column = 1
+    elif F == player_id and I == player_id:
+        row = 0
+        column = 2
+
+#ATAQUE DIAGONAL
+
+    #ataque Diagonal Izquierda
+    if A == player_id and I == player_id:
+        row = 1
+        column = 1
+    #ataque Diagonal Derecha
+    elif C == player_id and G == player_id:
+        row = 1
+        column = 1
+        
+
+###DEFENSA 
 
 #DEFENSA COLUMNAS
 
