@@ -171,7 +171,7 @@ def decide_move(board: list, player_id: str) -> list[int, int]:
     elif C == player_id and G == player_id:
         row = 1
         column = 1
-        
+
 
 ###DEFENSA 
 
@@ -253,7 +253,7 @@ def decide_move(board: list, player_id: str) -> list[int, int]:
         column = 1
 
 #ATAQUE (Primera jugada)
-    if board[1, 1] == "-":
+    if E == "-":
         row = 1
         column = 1
         return [row, column]
@@ -265,34 +265,13 @@ def decide_move(board: list, player_id: str) -> list[int, int]:
         row = 0
         column = 2
         return [row, column]
-    # if board[1, 1] == "-":
-    #     board[1, 1] = player_id
-
-
-    # if board[0, 0] == "-" and [0, 1] == "-" and [0, 2] == "-" and [1, 0] == "-" and [1, 1] == "-" and [1, 2] == "-"[2, 0] == "-" and [2, 1] == "-" and [2, 2] == "-":
-    #     board[0, 0] = player_id
-    # elif board[0, 1] == "-":
-    #     board 
 
     row = randint(0, 2)
     column = randint(0, 2)
     return [row, column]
 
-#nuevo codigo
+#Codigo antiguo, MINIMAX ALGORITHM
 
-#preimer posisicion
-
-#tomar el medio si esta disponible
-
-# si no, tomar otra esquina
-
-
-
-
-
-
-
-#mi codigo
     # def_init_(self, letter):
     #     super()._init_(letter)
 
