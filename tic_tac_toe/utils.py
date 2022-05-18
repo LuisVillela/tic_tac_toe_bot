@@ -93,84 +93,7 @@ def decide_move(board: list, player_id: str) -> list[int, int]:
     I = board[2][2]
 
 
-###ATAQUE
 
-#ATAQUE COLUMNAS
-
-    #ataque tercera columna
-    if A == player_id and B == player_id:
-        row = 0
-        column = 2
-    elif D == player_id and E == player_id:
-        row = 1
-        column = 2
-    elif G == player_id and H == player_id:
-        row = 2
-        column = 2
-    #ataque segunda columna 
-    elif A == player_id and C == player_id:
-        row = 0
-        column = 1
-    elif D == player_id and F == player_id:
-        row = 1
-        column = 1
-    elif G == player_id and I == player_id:
-        row = 2
-        column = 1
-    #ataque primera columna 
-    elif B == player_id and C == player_id:
-        row = 0
-        column = 0
-    elif E  == player_id and F == player_id:
-        row = 1
-        column = 0
-    elif H == player_id and I == player_id:
-        row = 2
-        column = 0
-
-#ATAQUE ROW
-
-    #ataque tercer row
-    if A == player_id and D == player_id:
-        row = 2
-        column = 0
-    elif B == player_id and E == player_id:
-        row = 2
-        column = 1
-    elif C == player_id and F == player_id:
-        row = 2
-        column = 2
-    #ataque segundo row
-    if A == player_id and G == player_id:
-        row = 1
-        column = 0
-    elif B == player_id and H == player_id:
-        row = 1
-        column = 1
-    elif C == player_id and I == player_id:
-        row = 1
-        column = 2
-    #ataque preimer row
-    if D == player_id and G == player_id:
-        row = 0
-        column = 0
-    elif E == player_id and H == player_id:
-        row = 0
-        column = 1
-    elif F == player_id and I == player_id:
-        row = 0
-        column = 2
-
-#ATAQUE DIAGONAL
-
-    #ataque Diagonal Izquierda
-    if A == player_id and I == player_id:
-        row = 1
-        column = 1
-    #ataque Diagonal Derecha
-    elif C == player_id and G == player_id:
-        row = 1
-        column = 1
 
 
 ###DEFENSA 
@@ -178,97 +101,253 @@ def decide_move(board: list, player_id: str) -> list[int, int]:
 #DEFENSA COLUMNAS
 
     #defensa tercera columna
-    if A == rival_id and B == rival_id:
+    if A == rival_id and B == rival_id and C == "-":
         row = 0
         column = 2
-    elif D == rival_id and E == rival_id:
+        return [row, column]
+    elif D == rival_id and E == rival_id and F == "-":
         row = 1
         column = 2
-    elif G == rival_id and H == rival_id:
+        return [row, column]
+    elif G == rival_id and H == rival_id and I == "-":
         row = 2
         column = 2
+        return [row, column]
     #defensa segunda columna 
-    elif A == rival_id and C == rival_id:
+    elif A == rival_id and C == rival_id and B == "-":
         row = 0
         column = 1
-    elif D == rival_id and F == rival_id:
+        return [row, column]
+    elif D == rival_id and F == rival_id and E == "-":
         row = 1
         column = 1
-    elif G == rival_id and I == rival_id:
+        return [row, column]
+    elif G == rival_id and I == rival_id and H == "-":
         row = 2
         column = 1
+        return [row, column]
     #defensa primera columna 
-    elif B == rival_id and C == rival_id:
+    elif B == rival_id and C == rival_id and A == "-":
         row = 0
         column = 0
-    elif E  == rival_id and F == rival_id:
+        return [row, column]
+    elif E  == rival_id and F == rival_id and D == "-":
         row = 1
         column = 0
-    elif H == rival_id and I == rival_id:
+        return [row, column]
+    elif H == rival_id and I == rival_id and G == "-":
         row = 2
         column = 0
+        return [row, column]
 
 #DEFENSA ROW
 
     #defensa tercer row
-    if A == rival_id and D == rival_id:
+    if A == rival_id and D == rival_id and G == "-":
         row = 2
         column = 0
-    elif B == rival_id and E == rival_id:
+        return [row, column]
+    elif B == rival_id and E == rival_id and H == "-":
         row = 2
         column = 1
-    elif C == rival_id and F == rival_id:
+        return [row, column]
+    elif C == rival_id and F == rival_id and I == "-":
         row = 2
         column = 2
+        return [row, column]
     #defensa segundo row
-    if A == rival_id and G == rival_id:
+    if A == rival_id and G == rival_id and D == "-":
         row = 1
         column = 0
-    elif B == rival_id and H == rival_id:
+        return [row, column]
+    elif B == rival_id and H == rival_id and E == "-":
         row = 1
         column = 1
-    elif C == rival_id and I == rival_id:
+        return [row, column]
+    elif C == rival_id and I == rival_id and F == "-":
         row = 1
         column = 2
+        return [row, column]
     #defensa preimer row
-    if D == rival_id and G == rival_id:
+    if D == rival_id and G == rival_id and A == "-":
         row = 0
         column = 0
-    elif E == rival_id and H == rival_id:
+        return [row, column]
+    elif E == rival_id and H == rival_id and B == "-":
         row = 0
         column = 1
-    elif F == rival_id and I == rival_id:
+        return [row, column]
+    elif F == rival_id and I == rival_id and C == "-":
         row = 0
         column = 2
+        return [row, column]
 
 #DEFENSA DIAGONAL
 
     #Diagonal Izquierda
-    if A == rival_id and I == rival_id:
-        row = 1
-        column = 1
-    #Diagonal Derecha
-    elif C == rival_id and G == rival_id:
-        row = 1
-        column = 1
-
-#ATAQUE (Primera jugada)
-    if E == "-":
-        row = 1
-        column = 1
-        return [row, column]
-    elif A == "-":
+    if E == rival_id and I == rival_id and A == "-":
         row = 0
         column = 0
         return [row, column]
-    elif C == "-":
-        row = 0
+    elif A == rival_id and I == rival_id and E == "-":
+        row = 1
+        column = 1
+        return [row, column]
+    elif A == rival_id and E == rival_id and I == "-":
+        row = 2
         column = 2
         return [row, column]
 
-    row = randint(0, 2)
-    column = randint(0, 2)
-    return [row, column]
+    #Diagonal Derecha
+    if E == rival_id and G == rival_id and C == "-":
+        row = 0
+        column = 2
+        return [row, column]
+    elif C == rival_id and G == rival_id and E == "-":
+        row = 1
+        column = 1
+        return [row, column]
+    elif C == rival_id and E == rival_id and G == "-":
+        row = 2
+        column = 0
+        return [row, column]
+
+
+
+###ATAQUE
+
+#ATAQUE COLUMNAS
+    else: 
+        #ataque tercera columna
+        if A == player_id and B == player_id and C == "-":
+            row = 0
+            column = 2
+            return [row, column]
+        elif D == player_id and E == player_id and F == "-":
+            row = 1
+            column = 2
+            return [row, column]
+        elif G == player_id and H == player_id and I == "-":
+            row = 2
+            column = 2
+            return [row, column]
+        #ataque segunda columna 
+        elif A == player_id and C == player_id and B == "-":
+            row = 0
+            column = 1
+            return [row, column]
+        elif D == player_id and F == player_id and E == "-":
+            row = 1
+            column = 1
+            return [row, column]
+        elif G == player_id and I == player_id and H == "-":
+            row = 2
+            column = 1
+            return [row, column]
+        #ataque primera columna 
+        elif B == player_id and C == player_id and A == "-":
+            row = 0
+            column = 0
+            return [row, column]
+        elif E  == player_id and F == player_id and D == "-":
+            row = 1
+            column = 0
+            return [row, column]
+        elif H == player_id and I == player_id and G == "-":
+            row = 2
+            column = 0
+            return [row, column]
+
+    #ATAQUE ROW
+
+        #ataque tercer row
+        if A == player_id and D == player_id and G == "-":
+            row = 2
+            column = 0
+            return [row, column]
+        elif B == player_id and E == player_id and H == "-":
+            row = 2
+            column = 1
+            return [row, column]
+        elif C == player_id and F == player_id and I == "-":
+            row = 2
+            column = 2
+            return [row, column]
+        #ataque segundo row
+        if A == player_id and G == player_id and D == "-":
+            row = 1
+            column = 0
+            return [row, column]
+        elif B == player_id and H == player_id and E == "-":
+            row = 1
+            column = 1
+            return [row, column]
+        elif C == player_id and I == player_id and F == "-":
+            row = 1
+            column = 2
+            return [row, column]
+        #ataque preimer row
+        if D == player_id and G == player_id and A == "-":
+            row = 0
+            column = 0
+            return [row, column]
+        elif E == player_id and H == player_id and B == "-":
+            row = 0
+            column = 1
+            return [row, column]
+        elif F == player_id and I == player_id and C == "-":
+            row = 0
+            column = 2
+            return [row, column]
+
+    #ATAQUE DIAGONAL
+
+        #Ataque Diagonal Izquierda
+        if E == player_id and I == player_id and A == "-":
+            row = 0
+            column = 0
+            return [row, column]
+        elif A == player_id and I == player_id and E == "-":
+            row = 1
+            column = 1
+            return [row, column]
+        elif A == player_id and E == player_id and I == "-":
+            row = 2
+            column = 2
+            return [row, column]
+
+        #Ataque Diagonal Derecha
+        if E == player_id and G == player_id and C == "-":
+            row = 0
+            column = 2
+            return [row, column]
+        elif C == player_id and G == player_id and E == "-":
+            row = 1
+            column = 1
+            return [row, column]
+        elif C == player_id and E == player_id and G == "-":
+            row = 2
+            column = 0
+            return [row, column]
+
+
+    #ATAQUE (Primera jugada)
+        if E == "-":
+            row = 1
+            column = 1
+            return [row, column]
+        elif A == "-":
+            row = 0
+            column = 0
+            return [row, column]
+        elif C == "-":
+            row = 0
+            column = 2
+            return [row, column]
+        
+        # row = randint(0, 2)
+        # column = randint(0, 2)
+        return [row, column]
 
 #Codigo antiguo, MINIMAX ALGORITHM
 
